@@ -7,4 +7,6 @@ $(document).ready(function(){
         .sidebar('attach events', '.toc.item')
         .sidebar('toggle');
 
+    $('.ui.dropdown')
+        .dropdown();
 })
