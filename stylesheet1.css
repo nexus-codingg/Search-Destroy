@@ -1,3 +1,6 @@
+body, body.pushable.pusher, div.pusher.dimmed, div.pusher, body.pushable {
+  background: #1b1c1d!important;
+}
 
 .ui.text.container{
     padding-top:150px;
