@@ -1,7 +1,7 @@
 //URL: http://www.gamespot.com/api/articles/?api_key=02a6f58c6c1dad1a35e97d9dbb05e8699381e856
 
-var kword;
-var aURL = "http://www.gamespot.com/api/articles/?api_key=02a6f58c6c1dad1a35e97d9dbb05e8699381e856"
+// var kword;
+// var aURL = ""
 
 // $("#search-term").on("change", startSearch);
 $("#userInput").on("keypress", function (e) {
@@ -14,23 +14,22 @@ if (e.key === "Enter") {
 } 
 })
 
-$.ajax({
-    url: aURL,
-    method: "GET",
-    dataType:"json",
+// $.ajax({
+//     url: aURL,
+//     method: "GET",
+//     dataType:"json",
 
-}).then(function(response){
-    console.log(response);
-})
+// }).then(function(response){
+//     console.log(response);
+// })
 
-// startSearch();
+// // startSearch();
 
 // function startSearch(kword) {
     
 
 // }
   
-
 
 
 
