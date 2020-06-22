@@ -1,35 +1,62 @@
-//URL: http://www.gamespot.com/api/articles/?api_key=02a6f58c6c1dad1a35e97d9dbb05e8699381e856
+// This will pull up the most popular articles based on the user's key word
 
-var kword;
-var aURL = "http://www.gamespot.com/api/articles/?api_key=02a6f58c6c1dad1a35e97d9dbb05e8699381e856"
+var keyWord;
+var searchURL = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?autoCorrect=true&pageNumber=1&pageSize=10&q=" + keyWord + "&safeSearch=true"
+var apiKey = "?rapidapi-key=4a82c08a16msh6a8b75f3318464bp1d1de8jsncd298ab8e732"
 
-// $("#search-term").on("change", startSearch);
-$("#userInput").on("keypress", function (e) {
-if (e.key === "Enter") {
-    // startSearch();
-    console.log("User pressed 'Enter'");
-    kword = $("#userInput").val();
-    console.log("User input:", kword);
-    
-} 
-})
-
-$.ajax({
-    url: aURL,
-    method: "GET",
-    dataType:"json",
-
-}).then(function(response){
-    console.log(response);
-})
-
-// startSearch();
-
-// function startSearch(kword) {
-    
-
+// this is the ajax call break down from rapidAPI
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=Taylor%20Swift&safeSearch=false",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+// 		"x-rapidapi-key": "4a82c08a16msh6a8b75f3318464bp1d1de8jsncd298ab8e732"
+// 	}
 // }
-  
+
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
+
+
+
+
+// When the user enters their input and presses "Enter", the search will begin
+$("#userInput").on("keypress", function (e) {
+    if (e.key === "Enter") {
+
+        event.stopPropagation();
+        event.preventDefault();
+        console.log("User pressed 'Enter'");
+        keyWord = encodeURIComponent($("#userInput").val()); // need to be able to translate spaces into a URL string
+        console.log("User input:", keyWord);
+        startSearch();
+ }
+ 
+});
+
+function startSearch() {
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q="+ keyWord+ "&safeSearch=false",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+		"x-rapidapi-key": "4a82c08a16msh6a8b75f3318464bp1d1de8jsncd298ab8e732"
+	}
+}
+$.ajax(settings).done(function (response) {
+    console.log("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q="+ keyWord+ "&safeSearch=false",
+    );
+	console.log(response);
+});
+}
+
+
+
 
 
 
