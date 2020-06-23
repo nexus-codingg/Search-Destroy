@@ -5,9 +5,10 @@ $(document).ready(function() {
             event.stopPropagation();
             event.preventDefault();
             console.log("User pressed 'Enter'");
-            keyWord = encodeURIComponent($("#userInput").val()); // need to be able to translate spaces into a URL string
+            keyWord = $("#userInput").val(); // need to be able to translate spaces into a URL string
             console.log("User input:", keyWord);
             startSearch();
+            $(".description").find("b").contents().unwrap();
         }
 });
 
@@ -15,7 +16,7 @@ $(document).ready(function() {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q="+ keyWord+ "&safeSearch=false",
+            "url": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q="+ keyWord+ "&safeSearch=true",
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
@@ -26,6 +27,8 @@ $(document).ready(function() {
         $.ajax(settings).done(function (newsData) {
             console.log(newsData); 
 
+            $('.ui.cards').empty();
+
             for (var i = 0; i<newsData.value.length; i++){
                 console.log(newsData.value[i].title);
                 console.log(newsData.value[i].image.thumbnail);
@@ -33,17 +36,38 @@ $(document).ready(function() {
                 console.log(newsData.value[i].description);
                 console.log(newsData.value[i].url);   
 
-                // var cardCreation = $('<div>');
-                // cardCreation.addClass('ui card');
-                // cardCreation.attr('id', 'articleNumber-' + i);
-                // var addImage = $('<div>');
-                // addImage.addClass('image');
+                
+                
 
-                // $('#articleNumber-' +i).append('h2' + newsData.value[i].title);
+                $('.ui.cards').attr('id', 'articleNumber-' + i);
+                var image = $('<img>');
+                image.append('src', newsData.value[i].image.thumbnail);
+                // var title = $('<div>');
+                // title.addClass('header').text(newsData.value[i].title);
+                var description = $('<div>');
+                description.addClass('description').text(newsData.value[i].description);
+                var date = $('<div>');
+                date.addClass('extra content').text(newsData.value[i].datePublished);
+                var url = $('<div>');
+                url.addClass('extra content').text(newsData.value[i].url);
+                var content = $("<div>").addClass('content');
 
+                
+
+                $('.ui.cards').append(image);
+                content.append(description,date, url);
+                $('.ui.cards').append(content);
+                
+                // var replace = keyWord.replace(//g, “red”);
+
+                // var replace = <>/ig;
+                //     alert(txt.replace(rex , ""));
             }
         });       
     }
 })
+
+
+
 
 
