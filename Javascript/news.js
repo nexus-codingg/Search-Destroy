@@ -45,22 +45,24 @@ $(document).ready(function () {
           var image = $("<img>");
           image
             .attr("src", newsData.value[i].image.thumbnail)
-            .css({'width': '200', 'height': '200', 'float': 'left', 'padding-right': '10px'});
+            .css({'width': '150', 'height': '150', 'float': 'left', 'padding-right': '10px'});
 
           
           var title = $("<h3>");
           title
             .addClass("header")
             .text(newsData.value[i].title.replace(/(<([^>]+)>)/gi, ""))
-            .css('color', 'white');;
+            .css({'color': 'white', 'margin-top': '0'});;
           var description = $("<div>");
           description
             .addClass("description")
             .text(newsData.value[i].description.replace(/(<([^>]+)>)/gi, ""))
             .css('color', 'white');
           var date = $("<div>");
+          var formattedDate = new Date(newsData.value[i].datePublished);
+          formattedDate = formattedDate;
           date.addClass("extra content")
-            .text(newsData.value[i].datePublished)
+            .text(formattedDate)
             .css('color', 'white');;
           var url = $("<a>");
           url
