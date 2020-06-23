@@ -30,38 +30,34 @@ $(document).ready(function() {
             $('.ui.cards').empty();
 
             for (var i = 0; i<newsData.value.length; i++){
-                console.log(newsData.value[i].title);
-                console.log(newsData.value[i].image.thumbnail);
-                console.log(newsData.value[i].datePublished);
-                console.log(newsData.value[i].description);
-                console.log(newsData.value[i].url);   
+                // console.log(newsData.value[i].title);
+                // console.log(newsData.value[i].image.thumbnail);
+                // console.log(newsData.value[i].datePublished);
+                // console.log(newsData.value[i].description);
+                // console.log(newsData.value[i].url);   
 
-                
-                
-
+            
                 $('.ui.cards').attr('id', 'articleNumber-' + i);
                 var image = $('<img>');
-                image.append('src', newsData.value[i].image.thumbnail);
-                // var title = $('<div>');
-                // title.addClass('header').text(newsData.value[i].title);
+                image.append('src', newsData.value[i].image.thumbnail).css({'width': '200', 'height': '200', 'float': 'left'});
+                var title = $('<div>');
+                title.addClass('header').text(newsData.value[i].title.replace(/(<([^>]+)>)/ig,""));
                 var description = $('<div>');
-                description.addClass('description').text(newsData.value[i].description);
+                description.addClass('description').text(newsData.value[i].description.replace(/(<([^>]+)>)/ig,""));
                 var date = $('<div>');
                 date.addClass('extra content').text(newsData.value[i].datePublished);
-                var url = $('<div>');
-                url.addClass('extra content').text(newsData.value[i].url);
+                var url = $('<a>');
+                url.addClass('extra content').attr({'href': newsData.value[i].url, 'target': '_blank'}).text('The journey continues here.');
                 var content = $("<div>").addClass('content');
 
-                
+                if (newsData.value[i].image.thumbnail !== null){
+                    content.append(image);
+                }
 
-                $('.ui.cards').append(image);
-                content.append(description,date, url);
+                
+                content.append(title,description,date, url);
                 $('.ui.cards').append(content);
                 
-                // var replace = keyWord.replace(//g, “red”);
-
-                // var replace = <>/ig;
-                //     alert(txt.replace(rex , ""));
             }
         });       
     }
