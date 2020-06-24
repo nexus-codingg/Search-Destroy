@@ -33,12 +33,22 @@ label::after{
   margin: 0 auto 0 auto;
 }
 #bottom{
-  padding-top:50px;
+  padding-top:40px;
 }
 #finishBtn{
   margin-top: 30px;
 }
 
+#searchGame-btn{
+  height: 25px;
+  margin-top: 20px;
+  margin-left: 5px;
+  background-color: grey;
+}
+
+#game-search{
+  line-height: 1.8;
+}
 .column {
   float: left;
   width: 50%;
