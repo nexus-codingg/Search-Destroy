@@ -57,6 +57,7 @@ $('#platform').on('change', function () {
 
 //Bigbutton to call getGamesRecommendation
 $("#bigButton").on('click', function () {
+    $('#middle').removeClass('hidden').addClass('active');
     console.log('click bigButton')
     getGamesRecommendation(genreSelected, platformSelected);
 });
