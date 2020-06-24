@@ -1,3 +1,6 @@
+body, body.pushable.pusher, div.pusher.dimmed, div.pusher, body.pushable {
+  background: #1b1c1d!important;
+}
 
 .ui.text.container{
     padding-top:150px;
@@ -36,6 +39,7 @@ label::after{
   margin-top: 30px;
 }
 
+<<<<<<< HEAD:stylesheet1.css
 .column {
   float: left;
   width: 50%;
@@ -48,6 +52,11 @@ label::after{
   clear: both;
 }
 
+=======
+#articleContainer{
+  padding-top:10px;
+}
+>>>>>>> master:Assets/stylesheet1.css
 
 
 @media only screen and (max-width: 700px) {

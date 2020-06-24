@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search & Destroy</title>
-    <!-- Semantuic UI  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <!-- Pure CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <!-- My stylesheet -->
-    <link rel="stylesheet" href="stylesheet1.css">
-  </head>
-  <body>
-    <!-- Side bar that pops up when hamburger is clicked -->
+  <title>Search & Destroy....</title>
+  <!-- Semantuic UI  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <!-- My stylesheet -->
+  <link rel="stylesheet" href="./Assets/stylesheet1.css">
+</head>
 
-    <div class="ui vertical inverted sidebar menu">
-      <a class="active item">Home</a>
-      <a class="item">News</a>
-      <a class="item">Latest</a>
-      <a class="item">Get Recs</a>
-    </div>
+<body>
+  <!-- Side bar that pops up when hamburger is clicked -->
+  <div class="ui vertical inverted sidebar menu">
+    <a class="active item">Home</a>
+    <a class="item" href="./Assets/news.html">News</a>
+    <!-- find a way to link just the Recommendations section on the html -->
+    <a class="item">Get Recs</a>
+  </div>
 
-  <!-- Links to home, news and reviews. Can we use RAWG to get gaming news or do we need a different api for this?
-     TO generate x amount of latest articles on gaming? Or is this too much? Same with reviews are we
-    linking to another page where the user can search reviews for  whatever game they want? Or should we scarp these links? -->
-    <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment" id="top">
-        <div class="ui container">
-          <div class="ui large secondary inverted pointing menu">
-            <a class="toc item">
-              <i class="sidebar icon"></i>
-            </a>
-            <a class="active item">Home</a>
-            <a class="item">News</a>
-            <a class="item">Reviews</a>
-          </div>
+  <!-- Links to home and news. When user clicks on "News", this will redirect to the News.html -->
+  
+    <div class="ui inverted vertical masthead center aligned segment" id="top">
+      <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="toc item" id="hamburger">
+            <i class="sidebar icon"></i>
+          </a>
+          <a class="active item">Home</a>
+          <a class="item" href="./Assets/news.html">News</a>
         </div>
+<<<<<<< HEAD
     
         <div class="ui text container">
           <h1 class="ui inverted header">
@@ -50,16 +49,28 @@
           </form>
 
           <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
-          should become hidden -->
-          <div class="ui huge grey button" id="bigButton">Get Recommendations<i class="right arrow icon"></i></div>
-        </div>
+=======
       </div>
 
-      <div class="ui inverted vertical center aligned segment" id="middle">
-        <h2 class='questionHeading'>What are you looking for?</h2>
+      <div class="ui text container">
+        <h1 class="ui inverted header">
+          Search & Destroy
+        </h1>
+        <h2>Find your game.</h2>
 
-        <!-- these are all the criteria for the search, right now we have the drop downs set so that multiple options
+        <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
+>>>>>>> master
+          should become hidden -->
+        <div class="ui huge grey button" id="bigButton">Get Recommendations<i class="right arrow icon"></i></div>
+      </div>
+    </div>
+
+    <div class="ui inverted vertical center aligned segment hidden" id="middle">
+      <h2 class='questionHeading'>What are you looking for?</h2>
+
+      <!-- these are all the criteria for the search, right now we have the drop downs set so that multiple options
         can be selected in one search-->
+<<<<<<< HEAD
         <!-- <select name="skills" multiple="" class="ui fluid dropdown">
           <option value="">Game Rating</option>
           <option value="Rated E">Rated E</option>
@@ -114,10 +125,80 @@
             <div class="ui placeholder">
               <div class="square image img-thumbnail" id='gamePic'></div>
             </div>
+=======
+      <select name="skills" multiple="" class="ui fluid dropdown">
+        <option value="">Game Rating</option>
+        <option value="Rated E">Rated E</option>
+        <option value="Rated T">Rated T</option>
+        <option value="Rated M">Rated M</option>
+      </select>
+      <br>
+      <br>
+      <!-- Generes will be dynamically created via JS -->
+      <select name="skills" multiple="" class="ui fluid dropdown">
+        <option value="">Genre</option>
+        <!-- <option value="Action">Action</option>
+        <option value="RPG">RPG</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Puzzle">Puzzle</option>
+        <option value="Sports">Sports</option>
+        <option value="Strategy">Strategy</option>
+        <option value="Indie">Indie</option>
+        <option value="Racing">Racing</option>
+        <option value="Fighting">Fighting</option> -->
+      </select>
+      <br>
+      <br>
+      <select name="skills" multiple="" class="ui fluid dropdown">
+        <option value="">Gaming Platform</option>
+        <option value="PS4">PS4</option>
+        <option value="XBox">XBox</option>
+        <option value="PC">PC</option>
+        <option value="Nintendo Switch">Nintendo Switch</option>
+      </select>
+      <br>
+      <br>
+      <div class="ui checkbox">
+        <input type="checkbox" name="example">
+        <label>Single Player</label>
+      </div>
+      <div class="ui checkbox">
+        <input type="checkbox" name="example">
+        <label>Multi-Player</label>
+      </div>
+      <br>
+      <br>
+      <!-- this button click makes this div hidden and shows the div below, and also calls the function that will
+        output the game recs -->
+      <button class="huge ui button" id="finishBtn">
+        FINISH HIM.
+      </button>
+
+
+    </div>
+
+    <div class="ui inverted vertical center aligned segment hidden" id="bottom">
+      <h2 class="recPage">Pick Your Poison</h2>
+      <!-- these are just placeholders for now, but this is where we will dump the recs, including image and name, the images
+        should be clickable, upon clicking it should bring the user to the review page? No sure about this functionality??  -->
+
+      <!-- I think when the picture is clicked, it should bring the user to a store where they can get the game
+      will the store front also show online stores? 
+      And if possible we will use the dimmer effect for when the user hovers over the picture, 
+      it will be a link that will take them to the store front-->
+      <div class="ui card">
+        <div class="content">
+          <div class="ui placeholder">
+            <div class="square image"></div>
+            <div class="header">Game Name</div>
+            <div class="description"></div>
+>>>>>>> master
           </div>
-         <div class="ui card">
+        </div>
+        <div class="ui card">
           <div class="content">
             <div class="ui placeholder">
+<<<<<<< HEAD
               <div class="square image" id='gamePic'></div>
             </div>
           </div>
@@ -135,9 +216,35 @@
     <script src = 'scriptSemanticUi.js'></script>
     <script src = 'script.js'></script>
   </body>
+=======
+              <div class="square image"></div>
+              <div class="header">Game Name</div>
+              <div class="description"></div>
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="content">
+              <div class="ui placeholder">
+                <div class="square image"></div>
+                <div class="header">Game Name</div>
+                <div class="description"></div>
+              </div>
+            </div>
+          </div>
+        
+
+        <!-- hidden and active classes-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+        <script src='./Javascript/scriptSemanticUi.js'></script>
+</body>
+
+>>>>>>> master
 </html>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
