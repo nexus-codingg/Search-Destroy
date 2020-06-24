@@ -34,6 +34,22 @@
           <a class="active item">Home</a>
           <a class="item" href="./Assets/news.html">News</a>
         </div>
+<<<<<<< HEAD
+    
+        <div class="ui text container">
+          <h1 class="ui inverted header">
+            Search & Destroy
+          </h1>
+          <h2>Find your game.</h2>
+          <!-- <input class="ui fluid" type="text" id="game-input"><br> -->
+          <!-- <input class="form-control" type="text" id="game-search" placeholder="Enter Game"><br> -->
+          <form class="form-inline form-group">
+            <input class="form-control" type="text" id="game-search" placeholder="Enter GAME">
+            <button class="btn btn-lg" id="searchGame-btn"> <i class="fa fa-search"></i> </button>
+          </form>
+
+          <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
+=======
       </div>
 
       <div class="ui text container">
@@ -43,6 +59,7 @@
         <h2>Find your game.</h2>
 
         <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
+>>>>>>> master
           should become hidden -->
         <div class="ui huge grey button" id="bigButton">Get Recommendations<i class="right arrow icon"></i></div>
       </div>
@@ -53,6 +70,62 @@
 
       <!-- these are all the criteria for the search, right now we have the drop downs set so that multiple options
         can be selected in one search-->
+<<<<<<< HEAD
+        <!-- <select name="skills" multiple="" class="ui fluid dropdown">
+          <option value="">Game Rating</option>
+          <option value="Rated E">Rated E</option>
+          <option value="Rated T">Rated T</option>
+          <option value="Rated M">Rated M</option>
+        </select> -->
+          <!-- <br>
+          <br> -->
+        <select name="skills" id="Genres" multiple="" class="ui fluid dropdown">
+          <option value="">Genre</option>
+          
+        </select>
+          <br>
+          <br>
+        <select name="skills" id="platform" multiple="" class="ui fluid dropdown">
+          <option value="">Gaming Platform</option>
+
+        </select>    
+          <br>
+          <br>
+      
+        <div class="ui checkbox">
+          <input type="checkbox" name="example">
+          <label>Single Player</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="example">
+          <label>Multi-Player</label>
+        </div>
+        <br>
+        <br>
+        <!-- this button click makes this div hidden and shows the div below, and also calls the function that will
+        output the game recs -->
+        <button class="huge ui button" id = "finishBtn">
+          FINISH HIM.
+        </button>
+       
+        
+      </div>
+
+      <div class="row">
+        <div class="column" id="topRatedContainer"></div>
+        <div class="column" id="randomContainer"></div>
+      </div>
+
+      <div class="ui inverted vertical center aligned segment" id="bottom">
+        <h2 class="recPage">Pick Your Poison</h2>
+        <!-- these are just placeholders for now, but this is where we will dump the recs, including image and name, the images
+        should be clickable, upon clicking it should bring the user t the review page? No sure about this functionality??  -->
+        <div class="ui card">
+          <div class="content">
+            <div class="ui placeholder">
+              <div class="square image img-thumbnail" id='gamePic'></div>
+            </div>
+=======
       <select name="skills" multiple="" class="ui fluid dropdown">
         <option value="">Game Rating</option>
         <option value="Rated E">Rated E</option>
@@ -119,11 +192,31 @@
             <div class="square image"></div>
             <div class="header">Game Name</div>
             <div class="description"></div>
+>>>>>>> master
           </div>
         </div>
         <div class="ui card">
           <div class="content">
             <div class="ui placeholder">
+<<<<<<< HEAD
+              <div class="square image" id='gamePic'></div>
+            </div>
+          </div>
+        <div class="ui card">
+          <div class="content">
+            <div class="ui placeholder">
+              <div class="square image" id='gamePic'></div>
+            </div>
+          </div>
+      </div>
+    
+    <!-- hidden and active classes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src = 'scriptSemanticUi.js'></script>
+    <script src = 'script.js'></script>
+  </body>
+=======
               <div class="square image"></div>
               <div class="header">Game Name</div>
               <div class="description"></div>
@@ -146,6 +239,7 @@
         <script src='./Javascript/scriptSemanticUi.js'></script>
 </body>
 
+>>>>>>> master
 </html>
 </head>
 
