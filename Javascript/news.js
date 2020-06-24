@@ -33,13 +33,7 @@ $(document).ready(function() {
                 console.log(newsData.value[i].description);
                 console.log(newsData.value[i].url);   
 
-                // var cardCreation = $('<div>');
-                // cardCreation.addClass('ui card');
-                // cardCreation.attr('id', 'articleNumber-' + i);
-                // var addImage = $('<div>');
-                // addImage.addClass('image');
-
-                // $('#articleNumber-' +i).append('h2' + newsData.value[i].title);
+            
 
             }
         });       
