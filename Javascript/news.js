@@ -1,5 +1,14 @@
 console.log("news.js loaded");
+
+var kWord;
+var myNewsKey = configNews.newsKey;
+var mynewsSecret = configNews.newsSecretKey;
+var myNewsKey_2 = configNews.newskey_2;
+var fullNewsKey = configNews.newsKey + configNews.newsSecretKey + configNews.newskey_2
+console.log(fullNewsKey);
+
 $(document).ready(function () {
+
   // When the user enters their input and presses "Enter", the search will begin
   $("#userInput").on("keypress", function (e) {
     if (e.key === "Enter") {
@@ -9,7 +18,6 @@ $(document).ready(function () {
       keyWord = $("#userInput").val(); // need to be able to translate spaces into a URL string
       console.log("User input:", keyWord);
       startSearch();
-      $(".description").find("b").contents().unwrap();
     }
   });
 
@@ -24,7 +32,7 @@ $(document).ready(function () {
       method: "GET",
       headers: {
         "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
-        "x-rapidapi-key": "4a82c08a16msh6a8b75f3318464bp1d1de8jsncd298ab8e732",
+        "x-rapidapi-key": fullNewsKey,
       },
     };
 
@@ -45,7 +53,7 @@ $(document).ready(function () {
           var image = $("<img>");
           image
             .attr("src", newsData.value[i].image.thumbnail)
-            .css({'width': '150', 'height': '150', 'float': 'left', 'padding-right': '10px'});
+            .css({'width': '200', 'height': '200', 'float': 'left', 'padding-right': '5px'});
 
           
           var title = $("<h3>");

@@ -40,7 +40,10 @@ $('#searchGame-btn').on('click', function (event) {
     var gameSearch = $('#game-search').val();
     console.log("SEARCH GAME " + gameSearch)
     getGameInfo(gameSearch);
-});
+    $('#gameRecContainer').removeClass('hidden').addClass('active');
+    $("#topRatedContainer").empty();
+    $("#randomContainer").empty();
+
 
 //on change function to get genres' ID # from user 
 $('#Genres').on('change', function () {
@@ -60,11 +63,14 @@ $("#bigButton").on('click', function () {
     $('#middle').removeClass('hidden').addClass('active');
     console.log('click bigButton')
     getGamesRecommendation(genreSelected, platformSelected);
+    $("#getRecContainer").addClass("hidden");
+  
 });
 //FINISH button to call getGamesRecommendation
 $("#finishBtn").on('click', function () {
     console.log('click finishBtn')
     getGamesRecommendation(genreSelected, platformSelected);
+    $('#gameRecContainer').removeClass('hidden').addClass('active');
 });
 
 
@@ -74,7 +80,7 @@ function getGameInfo(gameSearch) {
     $.ajax({
         type: "GET",
         datatype: "json",
-        url: "https://api.rawg.io/api/games?search=" + gameSearch
+        url: "https://api.rawg.io/api/games?&page_size=5&search=" + gameSearch
         // url: "https://api.rawg.io/api/games?ordering=-released&search=" + gameSearch
     }).then(function (response) {
         console.log('GETGAMEINFO api')
@@ -85,9 +91,9 @@ function getGameInfo(gameSearch) {
             var gameName = response.results[i].name;
             var gameRating = response.results[i].rating;
             var gameReleased = response.results[i].released;
-            var gameNameList = $('<div>').html('Title:' + gameName);
-            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating);;
-            var gameReleasedList = $('<div>').html('Released Date: ' + gameReleased)
+            var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
+            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating).attr("id", "gameRec-text");
+            var gameReleasedList = $('<div>').html('Released Date:  ' + gameReleased).attr("id", "gameRec-text");
             var imgsURL = response.results[i].background_image;
             var gamePic = $('<img>').attr("src", imgsURL).width('400px').height('400px');
             // console.log('imgs in loop ' + imgsURL);
@@ -98,8 +104,7 @@ function getGameInfo(gameSearch) {
         var nextPage = response.next;
         if (nextPage !== null) {
             getNextPageGames(nextPage);
-            $('#topRatedContainer').prepend('<a href="'+nextPage + '">' + nextPage +'</a><br>');
-        }
+            // $('#topRatedContainer').prepend('<a href="'+nextPage + '">' + nextPage +'</a><br>');
 
     })
 }
@@ -135,11 +140,11 @@ function randomRecommendations(randomPage, genreSelected, platformSelected) {
             var gameName = response.results[i].name;
             var gameRating = response.results[i].rating;
             var gameReleased = response.results[i].released;
-            var gameNameList = $('<div>').html('Title:' + gameName);
-            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating);;
-            var gameReleasedList = $('<div>').html('Released Date: ' + gameReleased)
+            var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
+            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating).attr("id", "gameRec-text");;
+            var gameReleasedList = $('<div>').html('Released Date: ' + gameReleased).attr("id", "gameRec-text");
             var imgsURL = response.results[i].background_image;
-            var gamePic = $('<img>').attr("src", imgsURL).width('200px').height('200px');
+            var gamePic = $('<img>').attr("src", imgsURL).width('400px').height('400px');
             // console.log('imgs in loop ' + imgsURL);
             $('#randomContainer').append(gameNameList, gameRatingList, gameReleasedList, gamePic);
         }
@@ -186,11 +191,11 @@ function getGamesRecommendation(genreSelected, platformSelected) {
             var gameRating = response.results[i].rating;
             var gameReleased = response.results[i].released;
             // var gameESRBList = $('<p>').html(esrbReturn);
-            var gameNameList = $('<div>').html('Title:' + gameName);
-            var gameReleasedList = $('<div>').html('Released Date: ' + gameReleased)
-            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating);;
+            var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
+            var gameReleasedList = $('<div>').html('Released Date: ' + gameReleased).attr("id", "gameRec-text")
+            var gameRatingList = $('<div>').html('Ratings:   ' + gameRating).attr("id", "gameRec-text");
             var imgsURL = response.results[i].background_image;
-            var gamePic = $('<img>').attr("src", imgsURL).width('200px').height('200px');
+            var gamePic = $('<img>').attr("src", imgsURL).width('400px').height('400px');
             // console.log('imgs in loop ' + imgsURL);
             $('#topRatedContainer').append(gameNameList, gameRatingList, gameReleasedList, gamePic);
         }
