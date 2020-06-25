@@ -19,6 +19,8 @@ $(document).ready(function () {
       keyWord = $("#userInput").val();
       console.log("User input:", keyWord);
       startSearch();
+      var header = $("<h1>").html("Pick Your Poison...").attr("id", "search-header")
+      $("#video-container").prepend(header)
     }
   });
 
@@ -40,6 +42,7 @@ function startSearch(){
         console.log(response)
         for (var i = 0; i < 3; i++) {
             embedVideo(response.items[i])
+   
         }
     }
     
@@ -48,13 +51,14 @@ function startSearch(){
 
 function embedVideo(videoItem){
     var video = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + videoItem.id.videoId)
-    var title = $("#video-title").text(videoItem.snippet.title)
-    $(".content").append(title, video)
+    var title = $("<h3>").text(videoItem.snippet.title)
+    $("#video-Content").append(title, video)
     console.log(videoItem)
 }
 
 
 $(".content").empty();
+$("#search-header").empty();
 
 
 

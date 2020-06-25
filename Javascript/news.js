@@ -53,7 +53,7 @@ $(document).ready(function () {
           var image = $("<img>");
           image
             .attr("src", newsData.value[i].image.thumbnail)
-            .css({'width': '150', 'height': '150', 'float': 'left', 'padding-right': '10px'});
+            .css({'width': '200', 'height': '200', 'float': 'left', 'padding-right': '5px'});
 
           
           var title = $("<h3>");

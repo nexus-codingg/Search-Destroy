@@ -33,37 +33,27 @@
         <a class="active item">Videos</a>
       </div>
     </div>
+  </div>
 
-    <div class="ui text container center aligned"></div>
-      <h1 class="ui inverted header center aligned">
-        Search for Videos about Your Favorite Games!
-      </h1>
-      <div class="ui center aligned category search">
-        <div class="ui icon input center aligned">
-          <input id="userInput" class="prompt" type="text" placeholder="Start the journey...">
-          <!-- <i class="search icon"></i>
-          <div id="trending-videos">
-            <h5>Trending Videos</h5>
-          </div> -->
-        </div>
+  <div class="ui text container center aligned" id="videosSearch-Container">
+    <h1 class="ui inverted header center aligned">
+      Search for Videos about Your Favorite Games!
+    </h1>
+    <div class="ui center aligned category search">
+      <div class="ui icon input center aligned">
+        <input id="userInput" class="prompt" type="text" placeholder="Start the journey...">
+        <i class="search icon"></i>
       </div>
     </div>
+  </div>
 
-    <!-- the div that will hold all the cards with the news search results -->
-    <div class="ui inverted vertical center aligned segment" id="bottom">
-      <h2 class="videoRec">Pick Your Poison</h2>
-
-      <!-- these are just placeholders for now, but this is where we will dump the recs, including image and name, the images  -->
-      <!-- should be clickable, upon clicking it should bring the user t the review page? No sure about this functionality??  -->
-      <div class="ui card">
-        <div class="content center aligned hidden">
-              <iframe id="vid"></iframe>
-              <h3 id="video-title"></h3>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- the div that will hold all the cards with the news search results -->
+  <div class="ui inverted vertical center aligned segment" id="video-container">
+    <!-- contaier for videos -->
+    <div class="ui fluid container" id="videoOuter">
+      <div class="ui basic segment" id="video-Content"></div>
     </div>
+  </div>
 
 
 </body>

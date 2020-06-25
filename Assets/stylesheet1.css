@@ -23,9 +23,9 @@ label::after{
 .recPage{
   padding-top: 50px;
 }
-.content{
+/* .content{
   padding-bottom: 20px;
-}
+} */
 .ui.card{
   margin: 0 auto 0 auto;
   background-color: transparent;
@@ -33,9 +33,6 @@ label::after{
 .ui.fluid.dropdown{
   width:50%;
   margin: 0 auto 0 auto;
-}
-#bottom{
-  padding-top:50px;
 }
 #finishBtn{
   margin-top: 30px;
@@ -65,12 +62,31 @@ h1{
   /* word-spacing: 5px; */
   margin-top: 60px;
 }
-div#gameRec-text{
+div#gameRec-text, #video-Content{
   color: white;
   line-height: 200%;
   font-size: 20px;
   padding: 20px, 1px;
 }
+#news-header{
+  padding:160x;
+}
+#articleContainer {
+  padding: 10px;
+  margin-top: 0px;
+  width: 100%;
+}
+#video-Content{
+  width: fit-content;
+  margin-left:200px;
+}
+#videosSearch-Container{
+  padding-bottom:80px;
+}
+#videoOuter{
+  margin-top:80px;
+}
+
 
 /* Clear floats after the columns */
 .row:after {
