@@ -81,11 +81,13 @@ div#gameRec-text, #video-Content{
   margin-left:200px;
 }
 #videosSearch-Container{
-  padding-bottom:80px;
+  padding-bottom:75px;
 }
 #videoOuter{
   margin-top:80px;
+  /* padding-left: 200px; */
 }
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -105,6 +107,7 @@ iframe {
   display: table;
   clear: both;
 }
+
 
 
 @media only screen and (max-width: 700px) {

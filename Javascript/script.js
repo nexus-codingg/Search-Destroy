@@ -1,7 +1,8 @@
-// global default variables for genre and plaform, includes all genres&parent_platform IDs from rawg api
-var genreSelected = '1,2,3,4,5,6,7,10,11,14,15,17,19,28,34,40,51,59,83';
-var platformSelected = '1,2,3,4,5,6,7,8,9,10,11,12,13,14';
-// var gameID = 3498;
+// variables for genre and plaform, includes all genres&parent_platform IDs from rawg api
+// var genreSelected = '1,2,3,4,5,6,7,10,11,14,15,17,19,28,34,40,51,59,83';
+// var platformSelected = '1,2,3,4,5,6,7,8,9,10,11,12,13,14';
+var genreSelected = '';
+var platformSelected = '';
 
 //Ajax call to get all genres to append to <select> Genres
 $.ajax({
@@ -12,10 +13,13 @@ $.ajax({
     console.log(response)
     for (var i = 0; i < response.results.length; i++) {
         var genreOptions = $("<option>").val(response.results[i].id).text(response.results[i].name);
-        console.log(response.results[i].name + ' GENRES-ID is: ' + response.results[i].id);
+        // console.log(response.results[i].name + ' GENRES-ID is: ' + response.results[i].id);
         genreOptions.attr("id", response.results[i].name);
         $("#Genres").append(genreOptions);
+        var genreID = (response.results[i].id).toString() +',';
+        genreSelected += genreID;
     }
+
 })
 
 //Ajax call to get all parent_platforms to append to <select> platform
@@ -24,13 +28,15 @@ $.ajax({
     datatype: "json",
     url: "https://api.rawg.io/api/platforms/lists/parents"
 }).then(function (response) {
-    // console.log(response)
+    console.log(response)
     for (var i = 0; i < response.results.length; i++) {
         // console.log(response.results[i].name);
         var platformOptions = $("<option>").val(response.results[i].id).text(response.results[i].name);
-        console.log(response.results[i].name + ' PLATFORM-ID is ' + response.results[i].id);
+        // console.log(response.results[i].name + ' PLATFORM-ID is ' + response.results[i].id);
         platformOptions.attr("id", response.results[i].name);
         $("#platform").append(platformOptions);
+        var platformID = (response.results[i].id).toString() +',';
+        platformSelected += platformID;
     }
 })
 
@@ -89,6 +95,7 @@ function getGameInfo(gameSearch) {
             var gameID = response.results[i].id;
             var gameName = response.results[i].name;
             var gameRating = response.results[i].rating;
+            var gameCount = response.results[i].ratings_count;
             var gameReleased = response.results[i].released;
             var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
             var gameRatingList = $('<div>').html('Ratings:   ' + gameRating).attr("id", "gameRec-text");
@@ -136,9 +143,11 @@ function randomRecommendations(randomPage, genreSelected, platformSelected) {
         $('#randomContainer').html('<h2>RANDOM GAMES!')
 
         for (var i = 0; i < 3; i++) {
+
             var gameID = response.results[i].id;
             var gameName = response.results[i].name;
             var gameRating = response.results[i].rating;
+            var gameCount = response.results[i].ratings_count;
             var gameReleased = response.results[i].released;
             var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
             var gameRatingList = $('<div>').html('Ratings:   ' + gameRating).attr("id", "gameRec-text");;
@@ -186,9 +195,11 @@ function getGamesRecommendation(genreSelected, platformSelected) {
         $('#topRatedContainer').html('<h2>TOP RATED GAMES!');
 
         for (var i = 0; i < 3; i++) {
+
             var gameID = response.results[i].id;
             var gameName = response.results[i].name;
             var gameRating = response.results[i].rating;
+            var gameCount = response.results[i].ratings_count;
             var gameReleased = response.results[i].released;
             // var gameESRBList = $('<p>').html(esrbReturn);
             var gameNameList = $('<div>').html('Title:' + " " + gameName).attr("id", "gameRec-text");
@@ -219,6 +230,6 @@ function getESRBRating(gameID) {
         console.log('ESRB ratings function')
         console.log(response)
         // console.log(response.esrb_rating.name)
-        // var esrbReturn = response.ratings_count;
+
     })
 }
