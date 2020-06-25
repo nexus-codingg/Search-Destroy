@@ -1,7 +1,7 @@
 var configVideos = {
-  videoKey: 'AIzaSyCsrxVQ',
-  videoSecretKey: 'DLHoPCQH5YJyF',
-  videokey2: '6TP27ybWVzD814'
+  videoKey: 'AIzaSyCF0pXc',
+  videoSecretKey: 'zgz8s-wxAXWhAD',
+  videokey2: '3CFwpGr020PXI'
   
 }
 
