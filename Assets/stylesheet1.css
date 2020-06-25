@@ -87,7 +87,6 @@ div#gameRec-text, #video-Content{
   margin-top:80px;
 }
 
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -98,8 +97,13 @@ div#gameRec-text, #video-Content{
 iframe {
   width: 480px;
   height: 270px;
-}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 
 @media only screen and (max-width: 700px) {
