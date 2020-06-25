@@ -14,10 +14,13 @@
   <link rel="stylesheet" href="./Assets/stylesheet1.css">
 </head>
 
+
+
 <body>
   <!-- Side bar that pops up when hamburger is clicked -->
   <div class="ui vertical inverted sidebar menu">
     <a class="active item">Home</a>
+    <a class="item" href="./Assets/news.html">News</a>
     <a class="item" href="./Assets/videos.html">Videos</a>
   </div>
 
@@ -30,24 +33,22 @@
           <i class="sidebar icon"></i>
         </a>
         <a class="active item">Home</a>
+        <a class="item" href="./Assets/news.html">News</a>
         <a class="item" href="./Assets/videos.html">Videos</a>
       </div>
+    </div>
 
-      <div class="ui text container">
-        <h1 class="ui inverted header">
-          Search & Destroy
-          <h3>Find your game.</h3>
-        </h1>
-        <!-- <input class="ui fluid" type="text" id="game-input"><br> -->
-        <!-- <input class="form-control" type="text" id="game-search" placeholder="Enter Game"><br> -->
-        <form class="form-inline form-group">
-          <input class="form-control" type="text" id="game-search" placeholder="Search a video game">
-          <button class="btn btn-lg" id="searchGame-btn"> <i class="fa fa-search"></i> </button>
-        </form>
-
-        <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
+    <div class="ui text container">
+      <h1 class="ui inverted header"> Search & Destroy </h1>
+      <h2>Find your game.</h2>
+      <div class="ui small action input">
+      <input class="ui fluid" type="text" id="game-search" placeholder="Search a video game">
+      <button class="ui button" id="searchGame-btn"> <i class="fa fa-search"></i>Search</button>
+    </div>
+      <!-- this button needs to be captured in javascript, upon clicking, the div below should appear, and this current div
           should become hidden -->
-          <h1>Or...take a journey to find something new...</h1>
+      <div id="getRecContainer">
+        <h1>Or...take a journey to find something new...</h1>
         <div class="ui huge grey button" id="bigButton">Get Recommendations<i class="right arrow icon"></i></div>
       </div>
     </div>
@@ -55,16 +56,6 @@
     <div class="ui inverted vertical center aligned segment hidden" id="middle">
       <h2 class='questionHeading'>What are you looking for?</h2>
 
-      <!-- these are all the criteria for the search, right now we have the drop downs set so that multiple options
-        can be selected in one search-->
-      <!-- <select name="skills" multiple="" class="ui fluid dropdown">
-          <option value="">Game Rating</option>
-          <option value="Rated E">Rated E</option>
-          <option value="Rated T">Rated T</option>
-          <option value="Rated M">Rated M</option>
-        </select> -->
-      <!-- <br>
-          <br> -->
       <select name="skills" id="Genres" multiple="" class="ui fluid dropdown">
         <option value="">Genre</option>
 
@@ -84,48 +75,18 @@
 
     </div>
 
-    <div class="row">
-      <div class="column" id="topRatedContainer"></div>
-      <div class="column" id="randomContainer"></div>
+
+    <div class="ui two column centered grid hidden" id="gameRecContainer">
+      <div class="three column centered row">
+        <div class="column" id="topRatedContainer"></div>
+        <div class="column" id="randomContainer"></div>
+      </div>
     </div>
 
-    <!-- <div class="ui inverted vertical center aligned segment" id="bottom">
-      <h2 class="recPage">Pick Your Poison</h2>
-      //-- these are just placeholders for now, but this is where we will dump the recs, including image and name, the images 
-        should be clickable, upon clicking it should bring the user t the review page? No sure about this functionality?? 
-      <div class="ui card">
-        <div class="content">
-          <div class="ui placeholder">
-            <div class="square image img-thumbnail" id='gamePic'></div>
-          </div>
-        </div>
-      </div>
-      <div class="ui card">
-        <div class="content">
-          <div class="ui placeholder">
-            <div class="square image" id='gamePic'></div>
-          </div>
-        </div>
-        <div class="ui card">
-          <div class="content">
-            <div class="ui placeholder">
-              <div class="square image" id='gamePic'></div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- hidden and active classes -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
-        <script src='./Javascript/scriptSemanticUi.js'></script>
-        <script src='./Javascript/script.js'></script>
-</body>
-
-</html>
-</head>
-
-<body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src='./Javascript/scriptSemanticUi.js'></script>
+    <script src='./Javascript/script.js'></script>
 </body>
 
 </html>

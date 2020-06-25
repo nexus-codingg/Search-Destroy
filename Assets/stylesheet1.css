@@ -9,7 +9,7 @@ input[type="text"]::placeholder {
     padding-bottom: 150px
 }
 #bigButton{
-    margin-top:50px;
+    margin-top:20px;
 }
 .ui.checkbox label{
   color:white;
@@ -40,10 +40,36 @@ label::after{
 #finishBtn{
   margin-top: 30px;
 }
-
-.column {
+#searchGame-btn {
+  width: 75px;
+  height: 25x;
+}
+/* .column {
   float: left;
   width: 50%;
+} */
+#getRecContainer {
+  margin-top: 80px;
+}
+h2 {
+  color: white;
+}
+h1.ui.inverted.header {
+  padding: 20px;
+  margin-bottom: 30px;
+}
+h1{
+  margin-top:80px;
+}
+#topRatedContainer, #randomContainer {
+  /* word-spacing: 5px; */
+  margin-top: 60px;
+}
+div#gameRec-text{
+  color: white;
+  line-height: 200%;
+  font-size: 20px;
+  padding: 20px, 1px;
 }
 
 /* Clear floats after the columns */
@@ -51,6 +77,11 @@ label::after{
   content: "";
   display: table;
   clear: both;
+}
+
+iframe {
+  width: 480px;
+  height: 270px;
 }
 
 

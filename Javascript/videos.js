@@ -1,11 +1,12 @@
 console.log("videos.js loaded");
 
-keyWord;
-var mykey = config.MY_KEY;
-var secretkey = config.SECRET_KEY;
-var mykey_2 = config.KEY_2;
-var fullkey = config.MY_KEY + config.SECRET_KEY + config.KEY_2;
+var keyWord;
+var mykey = configVideos.videoKey;
+var secretkey = configVideos.videoSecretKey;
+var mykey_2 = configVideos.videokey2;
+var fullkey = configVideos.videoKey + configVideos.videoSecretKey + configVideos.videokey2;
 console.log(fullkey);
+
 
 
 $(document).ready(function () {
@@ -17,40 +18,43 @@ $(document).ready(function () {
       console.log("User pressed 'Enter'");
       keyWord = $("#userInput").val();
       console.log("User input:", keyWord);
-      getVideo();
+      startSearch();
     }
   });
 
+  
+function startSearch(){
 
-  function getVideo() {
-    $.ajax({
-        type: 'GET',
-        url: 'https://www.googleapis.com/youtube/v3/search',
-        data: {
-            key: fullkey, 
-            q: "cats",
-            part: 'snippet',
-            maxResults: 1,
-            type: 'video',
-            videoEmbeddable: true,
-        },
-        success: function(data){
-            embedVideo(data)
-        },
-        error: function(response){
-            console.log(response);
-            console.log("Request Failed");
+  $.ajax({
+    url: "https://www.googleapis.com/youtube/v3/search",
+    type: "GET",
+    data: {
+        key: fullkey,
+        q: keyWord,
+        part: "snippet", // For this particular endpoint, this is the only permitted query parameter. Do not change this. 
+        maxResults: 4, // Doesn't matter what this is, as long as it is above 3, use 4 to be safe. 
+        type: "video",
+        videoEmbeddable: "true",
+    },
+    success: function(response){
+        console.log(response)
+        for (var i = 0; i < 3; i++) {
+            embedVideo(response.items[i])
         }
-    });
+    }
+    
+});
 }
-// function embedVideo(data) {
-//     $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
-//     $('h3').text(data.items[0].snippet.title)
-//     $('.description').text(data.items[0].snippet.description)
-// }
+
+function embedVideo(videoItem){
+    var video = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + videoItem.id.videoId)
+    var title = $("#video-title").text(videoItem.snippet.title)
+    $(".content").append(title, video)
+    console.log(videoItem)
+}
 
 
-
+$(".content").empty();
 
 
 
