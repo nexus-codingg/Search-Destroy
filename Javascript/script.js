@@ -49,7 +49,7 @@ $('#searchGame-btn').on('click', function (event) {
     $('#gameRecContainer').removeClass('hidden').addClass('active');
     $("#topRatedContainer").empty();
     $("#randomContainer").empty();
-
+});
 
 //on change function to get genres' ID # from user 
 $('#Genres').on('change', function () {
@@ -70,7 +70,6 @@ $("#bigButton").on('click', function () {
     console.log('click bigButton')
     getGamesRecommendation(genreSelected, platformSelected);
     $("#getRecContainer").addClass("hidden");
-  
 });
 //FINISH button to call getGamesRecommendation
 $("#finishBtn").on('click', function () {
@@ -112,6 +111,7 @@ function getGameInfo(gameSearch) {
         if (nextPage !== null) {
             getNextPageGames(nextPage);
             // $('#topRatedContainer').prepend('<a href="'+nextPage + '">' + nextPage +'</a><br>');
+        }
 
     })
 }
