@@ -1,64 +1,69 @@
-console.log("videos.js loaded");
+<!DOCTYPE html>
+<html lang="en">
 
-var keyWord;
-var mykey = configVideos.videoKey;
-var secretkey = configVideos.videoSecretKey;
-var mykey_2 = configVideos.videokey2;
-var fullkey = configVideos.videoKey + configVideos.videoSecretKey + configVideos.videokey2;
-console.log(fullkey);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Search....</title>
+  <!-- Semantics CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!-- My stylesheet -->
+  <link rel="stylesheet" href="stylesheet1.css">
+</head>
+
+<body>
+  <!-- When user clicks on the "Videos" link, there will be 3 randomly generated YouTube videos already populated, 
+      but when the user puts in a key word and presses "Enter", the videos will be replaced by relevant articles  -->
+
+  <!-- Side bar that pops up when hamburger is clicked -->
+  <div class="ui vertical inverted sidebar menu">
+    <a class="item" href="../index.html">Home</a>
+    <a class="item" href="news.html">News</a>
+    <a class="active item">Videos</a>
+  </div>
+
+  <div class="ui inverted vertical masthead center aligned segment" id="top">
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item" id="hamburger">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="item" href="../index.html">Home</a>
+        <a class="item" href="news.html">News</a>
+        <a class="active item">Videos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui text container center aligned" id="videosSearch-Container">
+    <h1 class="ui inverted header center aligned">
+      Search for Videos about Your Favorite Games!
+    </h1>
+    <div class="ui center aligned category search">
+      <div class="ui icon input center aligned">
+        <input id="userInput" class="prompt" type="text" placeholder="Start the journey...">
+        <i class="search icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- the div that will hold all the cards with the news search results -->
+  <div class="ui inverted vertical center aligned segment" id="video-container">
+    <!-- contaier for videos -->
+    <div class="ui fluid container" id="videoOuter">
+      <div class="ui basic segment" id="video-Content"></div>
+    </div>
+  </div>
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+<script src='../Javascript/config.js'></script>
+<script src="../Javascript/videos.js"></script>
+<script src='../Javascript/scriptSemanticUi.js'></script>
 
 
 
-$(document).ready(function () {
-  // When the user enters their input and presses "Enter", the search will begin
-  $("#userInput").on("keypress", function (e) {
-    if (e.key === "Enter") {
-      event.stopPropagation();
-      event.preventDefault();
-      console.log("User pressed 'Enter'");
-      keyWord = $("#userInput").val();
-      console.log("User input:", keyWord);
-      startSearch();
-    }
-  });
-
-
-  function startSearch() {
-    
-    $("#search-header").empty();
-
-    $.ajax({
-      url: "https://www.googleapis.com/youtube/v3/search",
-      type: "GET",
-      data: {
-        key: fullkey,
-        q: keyWord,
-        part: "snippet", // For this particular endpoint, this is the only permitted query parameter. Do not change this. 
-        maxResults: 4, // Doesn't matter what this is, as long as it is above 3, use 4 to be safe. 
-        type: "video",
-        videoEmbeddable: "true",
-      },
-      success: function (response) {
-        $("#video-Content").empty();
-        console.log(response)
-
-        var header = $("<h1>").html("Pick Your Poison...").attr("id", "search-header")
-        $("#video-container").prepend(header)
-
-        for (var i = 0; i < 3; i++) {
-          embedVideo(response.items[i])
-        }
-        function embedVideo(videoItem) {
-          var video = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + videoItem.id.videoId)
-          var title = $("<h3>").text(videoItem.snippet.title)
-          $("#video-Content").append(title, video)
-          console.log(videoItem)
-        }
-        // end of response function
-      }
-      // end of the ajax call
-    });
-    // end of the startSearch function
-  }
-  //end of document.ready 
-});
+</html>
