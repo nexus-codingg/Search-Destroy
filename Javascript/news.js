@@ -18,6 +18,7 @@ $(document).ready(function () {
       keyWord = $("#userInput").val(); // need to be able to translate spaces into a URL string
       console.log("User input:", keyWord);
       startSearch();
+      $("#search-loading").addClass("loading");
     }
   });
 
@@ -40,6 +41,8 @@ $(document).ready(function () {
       console.log(newsData);
 
       $(".ui.cards").empty();
+      $("#search-loading").removeClass("loading")
+      
 
       for (var i = 0; i < newsData.value.length; i++) {
         // console.log(newsData.value[i].title);

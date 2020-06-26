@@ -1,11 +1,16 @@
 console.log("videos.js loaded");
 
 var keyWord;
-var mykey = configVideos.videoKey;
-var secretkey = configVideos.videoSecretKey;
-var mykey_2 = configVideos.videokey2;
-var fullkey = configVideos.videoKey + configVideos.videoSecretKey + configVideos.videokey2;
-console.log(fullkey);
+
+//This is for the config JS to try and hide API Keys so when forking the project you'll need API Keys 
+// var mykey = configVideos.videoKey;
+// var secretkey = configVideos.videoSecretKey;
+// var mykey_2 = configVideos.videokey2;
+// var fullkey = configVideos.videoKey + configVideos.videoSecretKey + configVideos.videokey2;
+// console.log(fullkey);
+
+var fullkey = "" // You will need a Google API Key to make this work -> console.developers.google.com 
+                // article to help set up the the Youtube video search call -> https://dev.to/aveb/making-your-first-get-request-to-youtube-search-api-4c2f
 
 
 
