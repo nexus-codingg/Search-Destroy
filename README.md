@@ -4,7 +4,7 @@
 
 *On this application, their are three sections in the navbar; home, news, and video. Home section allow users to search a game of their choosing or get a recmmended game base on the selected criteria. News section allow users to retrieve the lastest informaton of any inputed game. Video section allow users to search for a game video contents.
 
-*Application Link: https://microxgleek94.github.io/ColumbiaProject_-1/
+*Application Link: https://microxgleek94.github.io/Search-Destroy/
 
 *Application Desktop/Mobile Image: ![](Assets/collage.JPG)
 
